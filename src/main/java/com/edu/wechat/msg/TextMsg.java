@@ -5,7 +5,7 @@ package com.edu.wechat.msg;
  */
 public class TextMsg extends WeChatMsg {
 
-    String content;
+    private String content;
 
     public String getContent() {
         return content;
@@ -17,7 +17,7 @@ public class TextMsg extends WeChatMsg {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("TextMsg{");
+        final StringBuilder sb = new StringBuilder("TextMsg{");
         sb.append("content=").append(content);
         sb.append('}');
         return sb.toString();

@@ -1,4 +1,4 @@
-package com.edu.wechat.msg;
+package com.edu.wechat;
 
 /**
  * Created by liyihan on 2017/3/2.
@@ -11,6 +11,7 @@ public enum MsgType {
     VIDEO,
     SHORTVIDEO,
     LOCATION,
-    LINK
+    LINK,
+    EVENT
 
 }

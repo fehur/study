@@ -5,9 +5,9 @@ package com.edu.wechat.msg;
  */
 public class VoiceMsg extends WeChatMsg {
 
-    String mediaId;
-    String format;
-    String recognition;
+    private String mediaId;
+    private String format;
+    private String recognition;
 
     public String getMediaId() {
         return mediaId;
@@ -35,7 +35,7 @@ public class VoiceMsg extends WeChatMsg {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("VoiceMsg{");
+        final StringBuilder sb = new StringBuilder("VoiceMsg{");
         sb.append("mediaId=").append(mediaId);
         sb.append(", format=").append(format);
         sb.append(", recognition=").append(recognition);

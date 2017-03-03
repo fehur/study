@@ -1,15 +1,17 @@
 package com.edu.wechat.msg;
 
+import com.edu.wechat.MsgType;
+
 /**
  * Created by liyihan on 2017/3/2.
  */
 public class WeChatMsg {
 
-    long msgId;
-    String toUserName;
-    String FromUserName;
-    long createTime;
-    MsgType msgType;
+    private long msgId;
+    private String toUserName;
+    private String FromUserName;
+    private long createTime;
+    private MsgType msgType;
 
     public long getMsgId() {
         return msgId;
@@ -53,7 +55,7 @@ public class WeChatMsg {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("WeChatMsg{");
+        final StringBuilder sb = new StringBuilder("WeChatMsg{");
         sb.append("msgId=").append(msgId);
         sb.append(", toUserName=").append(toUserName);
         sb.append(", FromUserName=").append(FromUserName);

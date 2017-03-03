@@ -9,6 +9,8 @@ import javax.validation.constraints.NotNull;
  */
 public class WeChatApi {
 
+    protected WeChatApi() { throw new RuntimeException();}
+
     private static String API_URL = "https://api.weixin.qq.com";
 
     /** 获取access_token */

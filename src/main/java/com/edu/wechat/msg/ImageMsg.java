@@ -3,10 +3,10 @@ package com.edu.wechat.msg;
 /**
  * Created by liyihan on 2017/3/2.
  */
-public class ImageMsg {
+public class ImageMsg extends WeChatMsg {
 
-    String picUrl;
-    String mediaId;
+    private String picUrl;
+    private String mediaId;
 
     public String getPicUrl() {
         return picUrl;
@@ -26,7 +26,7 @@ public class ImageMsg {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("ImageMsg{");
+        final StringBuilder sb = new StringBuilder("ImageMsg{");
         sb.append("picUrl=").append(picUrl);
         sb.append(", mediaId=").append(mediaId);
         sb.append('}');
