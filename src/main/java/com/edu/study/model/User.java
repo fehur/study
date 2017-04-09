@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import static com.edu.study.model.Constants.*;
 
 /**
+ * 用户表
+ *
  * Created by liyihan on 2017/3/6.
  */
 @Entity(name = Table.USER)
@@ -16,33 +18,35 @@ public class User {
     @Id
     @GeneratedValue
     @Column(name = Field.USER_ID)
-    private long id;
+    private long id; //编号
     @Column(name = Field.USER_NAME)
-    private String name;
+    private String name; //姓名
     @Column(name = Field.USER_EMAIL)
-    private String email;
+    private String email; //email
     @Column(name = Field.USER_PWD)
-    private String password;
+    private String password; //密码
     @Column(name = Field.USER_GENDER)
-    private Gender gender;
+    private Gender gender; //性别
     @Column(name = Field.USER_PROVINCE)
-    private String province;
+    private String province; //省
     @Column(name = Field.USER_CITY)
-    private String city;
+    private String city; //市
     @Column(name = Field.USER_BIRTHDAY)
-    private long birthday;
+    private long birthday; //生日
     @Column(name = Field.USER_IMAGE)
-    private String image;
+    private String image; //头像
     @Column(name = Field.USER_NICKNAME)
-    private String nickname;
+    private String nickname; //昵称
     @Column(name = Field.USER_OPENID)
-    private String openid;
+    private String openid; //openid
     @Column(name = Field.USER_CTIME)
-    private long ctime;
+    private long ctime; //注册时间
+    @Column(name = Field.USER_LMTIME)
+    private long lmtime;
     @Column(name = Field.USER_LAN)
-    private long lan;
+    private long lan; //经度
     @Column(name = Field.USER_LON)
-    private long lon;
+    private long lon; //纬度
 
     public long getId() {
         return id;
@@ -140,6 +144,14 @@ public class User {
         this.ctime = ctime;
     }
 
+    public long getLmtime() {
+        return lmtime;
+    }
+
+    public void setLmtime(long lmtime) {
+        this.lmtime = lmtime;
+    }
+
     public long getLan() {
         return lan;
     }
@@ -171,51 +183,10 @@ public class User {
         sb.append(", nickname=").append(nickname);
         sb.append(", openid=").append(openid);
         sb.append(", ctime=").append(ctime);
+        sb.append(", lmtime=").append(lmtime);
         sb.append(", lan=").append(lan);
         sb.append(", lon=").append(lon);
         sb.append('}');
         return sb.toString();
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof User)) return false;
-
-        User user = (User) o;
-
-        if (id != user.id) return false;
-        if (birthday != user.birthday) return false;
-        if (ctime != user.ctime) return false;
-        if (lan != user.lan) return false;
-        if (lon != user.lon) return false;
-        if (name != null ? !name.equals(user.name) : user.name != null) return false;
-        if (email != null ? !email.equals(user.email) : user.email != null) return false;
-        if (password != null ? !password.equals(user.password) : user.password != null) return false;
-        if (gender != user.gender) return false;
-        if (province != null ? !province.equals(user.province) : user.province != null) return false;
-        if (city != null ? !city.equals(user.city) : user.city != null) return false;
-        if (image != null ? !image.equals(user.image) : user.image != null) return false;
-        if (nickname != null ? !nickname.equals(user.nickname) : user.nickname != null) return false;
-        return openid != null ? openid.equals(user.openid) : user.openid == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (email != null ? email.hashCode() : 0);
-        result = 31 * result + (password != null ? password.hashCode() : 0);
-        result = 31 * result + (gender != null ? gender.hashCode() : 0);
-        result = 31 * result + (province != null ? province.hashCode() : 0);
-        result = 31 * result + (city != null ? city.hashCode() : 0);
-        result = 31 * result + (int) (birthday ^ (birthday >>> 32));
-        result = 31 * result + (image != null ? image.hashCode() : 0);
-        result = 31 * result + (nickname != null ? nickname.hashCode() : 0);
-        result = 31 * result + (openid != null ? openid.hashCode() : 0);
-        result = 31 * result + (int) (ctime ^ (ctime >>> 32));
-        result = 31 * result + (int) (lan ^ (lan >>> 32));
-        result = 31 * result + (int) (lon ^ (lon >>> 32));
-        return result;
     }
 }

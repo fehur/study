@@ -11,6 +11,7 @@ public interface Constants {
         String REPLAY_MSG = "t_replay_msg";
         String USER = "t_user";
         String ITINERARY = "t_itinerary";
+        String STUDY_TARGET = "t_study_target";
     }
 
     interface Field {
@@ -38,6 +39,7 @@ public interface Constants {
         String USER_NICKNAME = "nickname";
         String USER_OPENID = "openid";
         String USER_CTIME = "ctime";
+        String USER_LMTIME = "lmtime";
         String USER_LAN = "lan";
         String USER_LON = "lon";
 
@@ -48,6 +50,14 @@ public interface Constants {
         String ITINERARY_DAY = "day";
         String ITINERARY_CONTENT = "content";
         String ITINERARY_CTIME = "ctime";
+
+        String TARGET_ID = "id";
+        String TARGET_DAY = "day";
+        String TARGET_TEXT = "text";
+        String TARGET_PIC = "pic";
+        String TARGET_AUDIO = "audio";
+        String TARGET_CTIME = "ctime";
+        String TARGET_LMTIME = "lmtime";
     }
 
 }
