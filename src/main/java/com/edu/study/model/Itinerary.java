@@ -5,27 +5,29 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import static com.edu.study.model.Constants.*;
+import static com.edu.study.model.Constants.Table;
+import static com.edu.study.model.Constants.Field.Itinerary.*;
 
 /**
  * Created by liyihan on 2017/3/6.
  */
 @Entity(name = Table.ITINERARY)
+@Deprecated
 public class Itinerary {
 
     @Id
     @GeneratedValue
-    @Column(name = Field.ITINERARY_ID)
+    @Column(name = ITINERARY_ID)
     private long id;
-    @Column(name = Field.ITINERARY_TYPE)
+    @Column(name = ITINERARY_TYPE)
     private String type;
-    @Column(name = Field.ITINERARY_NAME)
+    @Column(name = ITINERARY_NAME)
     private String name;
-    @Column(name = Field.ITINERARY_DAY)
+    @Column(name = ITINERARY_DAY)
     private String day;
-    @Column(name = Field.ITINERARY_CONTENT)
+    @Column(name = ITINERARY_CONTENT)
     private String content;
-    @Column(name = Field.ITINERARY_CTIME)
+    @Column(name = ITINERARY_CTIME)
     private String ctime;
 
     public long getId() {

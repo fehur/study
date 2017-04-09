@@ -5,7 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import static com.edu.study.model.Constants.*;
+import java.util.Date;
+
+import static com.edu.study.model.Constants.Table;
+import static com.edu.study.model.Constants.Field.User.*;
 
 /**
  * 用户表
@@ -17,36 +20,40 @@ public class User {
 
     @Id
     @GeneratedValue
-    @Column(name = Field.USER_ID)
+    @Column(name = USER_ID)
     private long id; //编号
-    @Column(name = Field.USER_NAME)
+    @Column(name = USER_NAME)
     private String name; //姓名
-    @Column(name = Field.USER_EMAIL)
+    @Column(name = USER_EMAIL)
     private String email; //email
-    @Column(name = Field.USER_PWD)
+    @Column(name = USER_PWD)
     private String password; //密码
-    @Column(name = Field.USER_GENDER)
+    @Column(name = USER_GENDER)
     private Gender gender; //性别
-    @Column(name = Field.USER_PROVINCE)
+    @Column(name = USER_PROVINCE)
     private String province; //省
-    @Column(name = Field.USER_CITY)
+    @Column(name = USER_CITY)
     private String city; //市
-    @Column(name = Field.USER_BIRTHDAY)
+    @Column(name = USER_BIRTHDAY)
     private long birthday; //生日
-    @Column(name = Field.USER_IMAGE)
+    @Column(name = USER_IMAGE)
     private String image; //头像
-    @Column(name = Field.USER_NICKNAME)
+    @Column(name = USER_NICKNAME)
     private String nickname; //昵称
-    @Column(name = Field.USER_OPENID)
+    @Column(name = USER_OPENID)
     private String openid; //openid
-    @Column(name = Field.USER_CTIME)
-    private long ctime; //注册时间
-    @Column(name = Field.USER_LMTIME)
-    private long lmtime;
-    @Column(name = Field.USER_LAN)
+    @Column(name = USER_CTIME)
+    private Date ctime; //注册时间
+    @Column(name = USER_LMTIME)
+    private Date lmtime;
+    @Column(name = USER_LAN)
     private long lan; //经度
-    @Column(name = Field.USER_LON)
+    @Column(name = USER_LON)
     private long lon; //纬度
+    @Column(name = USER_FANS)
+    private int fans; //是否是粉丝(0-不是,1-是)
+    @Column(name = USER_LOGIN_TIME)
+    private Date lastLoginTime;
 
     public long getId() {
         return id;
@@ -136,19 +143,19 @@ public class User {
         this.openid = openid;
     }
 
-    public long getCtime() {
+    public Date getCtime() {
         return ctime;
     }
 
-    public void setCtime(long ctime) {
+    public void setCtime(Date ctime) {
         this.ctime = ctime;
     }
 
-    public long getLmtime() {
+    public Date getLmtime() {
         return lmtime;
     }
 
-    public void setLmtime(long lmtime) {
+    public void setLmtime(Date lmtime) {
         this.lmtime = lmtime;
     }
 
@@ -166,6 +173,22 @@ public class User {
 
     public void setLon(long lon) {
         this.lon = lon;
+    }
+
+    public int getFans() {
+        return fans;
+    }
+
+    public void setFans(int fans) {
+        this.fans = fans;
+    }
+
+    public Date getLastLoginTime() {
+        return lastLoginTime;
+    }
+
+    public void setLastLoginTime(Date lastLoginTime) {
+        this.lastLoginTime = lastLoginTime;
     }
 
     @Override
@@ -186,6 +209,8 @@ public class User {
         sb.append(", lmtime=").append(lmtime);
         sb.append(", lan=").append(lan);
         sb.append(", lon=").append(lon);
+        sb.append(", fans=").append(fans);
+        sb.append(", lastLoginTime=").append(lastLoginTime);
         sb.append('}');
         return sb.toString();
     }

@@ -5,32 +5,37 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import static com.edu.study.model.Constants.*;
+import java.util.Date;
+
+import static com.edu.study.model.Constants.Table;
+import static com.edu.study.model.Constants.Field.StudyTarget.*;
 
 /**
  * 学习目标实体类
  *
  * Created by liyihan on 2017/3/28.
  */
-@Entity(name = Table.ITINERARY)
+@Entity(name = Table.STUDY_TARGET)
 public class StudyTarget {
 
     @Id
     @GeneratedValue
-    @Column(name = Field.TARGET_ID)
+    @Column(name = TARGET_ID)
     private long id; //编号
-    @Column(name = Field.TARGET_DAY)
+    @Column(name = TARGET_DAY)
     private String day; //日期
-    @Column(name = Field.TARGET_TEXT)
+    @Column(name = TARGET_TYPE)
+    private String type;
+    @Column(name = TARGET_TEXT)
     private String text; //文字
-    @Column(name = Field.TARGET_PIC)
+    @Column(name = TARGET_PIC)
     private String pic; //图片
-    @Column(name = Field.TARGET_AUDIO)
+    @Column(name = TARGET_AUDIO)
     private String audio; //语音
-    @Column(name = Field.TARGET_CTIME)
-    private long ctime; //创建时间
-    @Column(name = Field.TARGET_LMTIME)
-    private long lmtime; //最后修改时间
+    @Column(name = TARGET_CTIME)
+    private Date ctime; //创建时间
+    @Column(name = TARGET_LMTIME)
+    private Date lmtime; //最后修改时间
 
     public long getId() {
         return id;
@@ -50,6 +55,14 @@ public class StudyTarget {
 
     public String getText() {
         return text;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public void setText(String text) {
@@ -72,19 +85,19 @@ public class StudyTarget {
         this.audio = audio;
     }
 
-    public long getCtime() {
+    public Date getCtime() {
         return ctime;
     }
 
-    public void setCtime(long ctime) {
+    public void setCtime(Date ctime) {
         this.ctime = ctime;
     }
 
-    public long getLmtime() {
+    public Date getLmtime() {
         return lmtime;
     }
 
-    public void setLmtime(long lmtime) {
+    public void setLmtime(Date lmtime) {
         this.lmtime = lmtime;
     }
 
@@ -93,6 +106,7 @@ public class StudyTarget {
         final StringBuilder sb = new StringBuilder("StudyTarget{");
         sb.append("id=").append(id);
         sb.append(", day=").append(day);
+        sb.append(", type=").append(type);
         sb.append(", text=").append(text);
         sb.append(", pic=").append(pic);
         sb.append(", audio=").append(audio);

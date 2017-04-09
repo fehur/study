@@ -5,32 +5,35 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import static com.edu.study.model.Constants.*;
+import java.util.Date;
+
+import static com.edu.study.model.Constants.Table;
+import static com.edu.study.model.Constants.Field.ReplyMsg.*;
 
 /**
  * Created by liyihan on 2017/3/6.
  */
 @Entity(name = Table.REPLAY_MSG)
-public class ReplayMsg {
+public class ReplyMsg {
 
     @Id
     @GeneratedValue
-    @Column(name = Field.REPLAY_MSG_ID)
+    @Column(name = REPLAY_MSG_ID)
     private long id;
-    @Column(name = Field.REPLAY_MSG_TYPE)
+    @Column(name = REPLAY_MSG_TYPE)
     private ReplayType type;
-    @Column(name = Field.REPLAY_MSG_NAME)
+    @Column(name = REPLAY_MSG_NAME)
     private String name;
-    @Column(name = Field.REPLAY_MSG_KEYWORD)
+    @Column(name = REPLAY_MSG_KEYWORD)
     private String keyword;
-    @Column(name = Field.REPLAY_MSG_CONTENT)
+    @Column(name = REPLAY_MSG_CONTENT)
     private String content;
-    @Column(name = Field.REPLAY_MSG_USE_COUNT)
+    @Column(name = REPLAY_MSG_USE_COUNT)
     private long useCount;
-    @Column(name = Field.REPLAY_MSG_CTIME)
-    private long ctime;
-    @Column(name = Field.REPLAY_MSG_LMTIME)
-    private long lmtime;
+    @Column(name = REPLAY_MSG_CTIME)
+    private Date ctime;
+    @Column(name = REPLAY_MSG_LMTIME)
+    private Date lmtime;
 
     public long getId() {
         return id;
@@ -80,19 +83,19 @@ public class ReplayMsg {
         this.useCount = useCount;
     }
 
-    public long getCtime() {
+    public Date getCtime() {
         return ctime;
     }
 
-    public void setCtime(long ctime) {
+    public void setCtime(Date ctime) {
         this.ctime = ctime;
     }
 
-    public long getLmtime() {
+    public Date getLmtime() {
         return lmtime;
     }
 
-    public void setLmtime(long lmtime) {
+    public void setLmtime(Date lmtime) {
         this.lmtime = lmtime;
     }
 
@@ -109,35 +112,5 @@ public class ReplayMsg {
         sb.append(", lmtime=").append(lmtime);
         sb.append('}');
         return sb.toString();
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof ReplayMsg)) return false;
-
-        ReplayMsg replayMsg = (ReplayMsg) o;
-
-        if (id != replayMsg.id) return false;
-        if (useCount != replayMsg.useCount) return false;
-        if (ctime != replayMsg.ctime) return false;
-        if (lmtime != replayMsg.lmtime) return false;
-        if (type != replayMsg.type) return false;
-        if (!name.equals(replayMsg.name)) return false;
-        if (!keyword.equals(replayMsg.keyword)) return false;
-        return content.equals(replayMsg.content);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + type.hashCode();
-        result = 31 * result + name.hashCode();
-        result = 31 * result + keyword.hashCode();
-        result = 31 * result + content.hashCode();
-        result = 31 * result + (int) (useCount ^ (useCount >>> 32));
-        result = 31 * result + (int) (ctime ^ (ctime >>> 32));
-        result = 31 * result + (int) (lmtime ^ (lmtime >>> 32));
-        return result;
     }
 }
