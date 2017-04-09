@@ -1,12 +1,14 @@
-package com.edu.wechat.util;
+package com.edu.wechat.service;
 
 import com.edu.wechat.WeChatApi;
+import com.edu.wechat.util.HttpUtil;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
@@ -16,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by liyihan on 2017/3/7.
  */
-@Resource
+@Service
 public class AccessTokenUtil {
 
     private static String ACCESS_TOKEN_KEY = "access_token";

@@ -22,7 +22,7 @@ public class MenuController {
     @ResponseBody
     @RequestMapping("/info")
     public List<Menu> info() {
-        return messageService.getWeChatMenu();
+        return null;
     }
 
 }

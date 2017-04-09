@@ -35,7 +35,7 @@ public class User {
     @Column(name = USER_CITY)
     private String city; //市
     @Column(name = USER_BIRTHDAY)
-    private long birthday; //生日
+    private Date birthday; //生日
     @Column(name = USER_IMAGE)
     private String image; //头像
     @Column(name = USER_NICKNAME)
@@ -111,11 +111,11 @@ public class User {
         this.city = city;
     }
 
-    public long getBirthday() {
+    public Date getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(long birthday) {
+    public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
 
