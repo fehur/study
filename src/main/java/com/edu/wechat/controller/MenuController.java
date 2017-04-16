@@ -1,4 +1,4 @@
-package com.edu.study.controller;
+package com.edu.wechat.controller;
 
 import com.edu.wechat.service.MessageService;
 import com.edu.wechat.model.Menu;

@@ -6,6 +6,7 @@ package com.edu.study.model;
 public interface Constants {
 
     String SUCCESS = "success";
+    String FAIL = "";
 
     interface Table {
         String REPLAY_MSG = "t_replay_msg";
@@ -38,6 +39,7 @@ public interface Constants {
             String USER_EMAIL = "email";
             String USER_PWD = "password";
             String USER_GENDER = "gender";
+            String USER_GRADE = "grade";
             String USER_PROVINCE = "province";
             String USER_CITY = "city";
             String USER_BIRTHDAY = "birthday";

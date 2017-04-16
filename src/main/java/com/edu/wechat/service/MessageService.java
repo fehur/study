@@ -1,9 +1,19 @@
 package com.edu.wechat.service;
 
+import com.edu.study.model.User;
+import com.edu.study.service.UserService;
+import com.edu.wechat.msg.event.SubscribeEvent;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+import java.util.Map;
+
+import static com.edu.study.model.Constants.FAIL;
 import static com.edu.study.model.Constants.SUCCESS;
 
 /**
@@ -13,9 +23,13 @@ import static com.edu.study.model.Constants.SUCCESS;
 public class MessageService {
 
     @Autowired
-    AccessTokenUtil accessTokenUtil;
+    private AccessTokenUtil accessTokenUtil;
+    @Autowired
+    private UserService userService;
 
     private static ObjectMapper mapper = new ObjectMapper();
+
+    private final Logger LOG = LoggerFactory.getLogger(this.getClass());
 
     /**
      * 解析文字消息,并查找该文字是否是关键字消息,如果是则取关键字对应的消息进行回复,否则记录消息
@@ -103,8 +117,25 @@ public class MessageService {
      * @return
      */
     public String parseSubscribeEvent(String xml) {
-        //TODO
-        return SUCCESS;
+        try {
+            Map<String, Object> map = mapper.readValue(xml, new TypeReference<Map<String, Object>>(){});
+            SubscribeEvent event = mapper.readValue(xml, SubscribeEvent.class);
+            if (event == null)
+                return FAIL;
+
+            User user = new User();
+            user.setOpenid(event.getFromUserName());
+            user.setCtime(new Date(event.getCreateTime()));
+            long uid = userService.saveUser(user);
+            if (uid == 0)
+                return FAIL;
+            //TODO 发消息获取用户信息
+
+            return SUCCESS;
+        } catch (Exception e) {
+            LOG.error("关注解析错误", e);
+            return FAIL;
+        }
     }
 
     /**
